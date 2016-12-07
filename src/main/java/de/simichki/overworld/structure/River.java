@@ -9,4 +9,10 @@ public class River extends Structure {
     public River(ConnectionType[] connections, Field position) {
         super(connections, position);
     }
+
+    public static class Settlement extends Structure {
+        public Settlement(ConnectionType[] connections, Field position) {
+            super(connections, position);
+        }
+    }
 }
