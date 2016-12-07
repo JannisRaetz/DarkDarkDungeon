@@ -19,20 +19,22 @@ public class Hexagon extends Polygon implements MouseListener{
     private Point center = new Point(0, 0);
     private int radius;
     private int rotation = 90;
+    private final Graphics2D graphics;
 
-    public Hexagon(Point center, int radius) {
+    public Hexagon(final Graphics2D graphics, Point center, int radius) {
         npoints = SIDES;
         xpoints = new int[SIDES];
         ypoints = new int[SIDES];
 
         this.center = center;
         this.radius = radius;
+        this.graphics = graphics;
 
         updatePoints();
     }
 
-    public Hexagon(int x, int y, int radius) {
-        this(new Point(x, y), radius);
+    public Hexagon(final Graphics2D graphics, int x, int y, int radius) {
+        this(graphics, new Point(x, y), radius);
     }
 
     public int getRadius() {
@@ -87,41 +89,50 @@ public class Hexagon extends Polygon implements MouseListener{
         }
     }
 
-    public void drawPolygon(Graphics2D g, int x, int y, int lineThickness, int colorValue, boolean filled) {
+    public void drawPolygon(int x, int y, int lineThickness, int colorValue, boolean filled) {
         // Store before changing.
-        Stroke tmpS = g.getStroke();
-        Color tmpC = g.getColor();
+        Stroke tmpS = graphics.getStroke();
+        Color tmpC = graphics.getColor();
 
-        g.setColor(new Color(colorValue));
-        g.setStroke(new BasicStroke(lineThickness, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_MITER));
+        graphics.setColor(new Color(colorValue));
+        graphics.setStroke(new BasicStroke(lineThickness, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_MITER));
 
         if (filled)
-            g.fillPolygon(xpoints, ypoints, npoints);
+            graphics.fillPolygon(xpoints, ypoints, npoints);
         else
-            g.drawPolygon(xpoints, ypoints, npoints);
+            graphics.drawPolygon(xpoints, ypoints, npoints);
 
         // Set values to previous when done.
-        g.setColor(tmpC);
-        g.setStroke(tmpS);
+        graphics.setColor(tmpC);
+        graphics.setStroke(tmpS);
     }
 
     public void mouseClicked(MouseEvent e) {
-
+        graphics.setColor(new Color(0x22222));
+        graphics.fillPolygon(this);
     }
 
     public void mousePressed(MouseEvent e) {
+        graphics.setColor(new Color(0x22222));
+        graphics.fillPolygon(this);
 
     }
 
     public void mouseReleased(MouseEvent e) {
+        graphics.setColor(new Color(0x22222));
+        graphics.fillPolygon(this);
 
     }
 
     public void mouseEntered(MouseEvent e) {
+        graphics.setColor(new Color(0x22222));
+        graphics.fillPolygon(this);
 
     }
 
     public void mouseExited(MouseEvent e) {
+        graphics.setColor(new Color(0x22222));
+        graphics.fillPolygon(this);
 
     }
 }
