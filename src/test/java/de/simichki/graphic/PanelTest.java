@@ -12,16 +12,10 @@ public class PanelTest {
         JFrame f = new JFrame();
         Panel p = new Panel();
 
-        JScrollPane scrollPane = new JScrollPane(p);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-        scrollPane.setBounds(50, 30, 2000, 2000);
-
         JPanel contentPane = new JPanel(null);
-        contentPane.setPreferredSize(new Dimension(1000, 1000));
-        contentPane.add(scrollPane);
+        contentPane.setPreferredSize(new Dimension(1200, 1200));
 
-        f.setContentPane(contentPane);
+        f.setContentPane(p);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.pack();
         f.setLocationRelativeTo(null);

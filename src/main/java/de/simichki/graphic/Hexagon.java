@@ -6,8 +6,10 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Stroke;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class Hexagon extends Polygon {
+public class Hexagon extends Polygon implements MouseListener{
 
     private static final long serialVersionUID = 1L;
 
@@ -101,5 +103,25 @@ public class Hexagon extends Polygon {
         // Set values to previous when done.
         g.setColor(tmpC);
         g.setStroke(tmpS);
+    }
+
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    public void mouseExited(MouseEvent e) {
+
     }
 }
