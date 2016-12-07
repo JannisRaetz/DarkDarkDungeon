@@ -4,5 +4,8 @@ public enum FieldType {
     Field,
     Forrest,
     DeepForrest,
-    Mountain
+    Mountain,
+    Lake,
+    Beach,
+    Ocean
 }

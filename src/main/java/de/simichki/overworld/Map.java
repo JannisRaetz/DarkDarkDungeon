@@ -1,8 +1,8 @@
 package de.simichki.overworld;
 
 public class Map {
-    private unsigned int width;
-    private unsigned int height;
+    private int width;
+    private int height;
     private Field[][] fieldArray;
 
     public Map (Field[][] fieldArray) {
