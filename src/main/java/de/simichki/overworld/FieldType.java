@@ -1,6 +1,8 @@
+package de.simichki.overworld;
+
 public enum FieldType {
     Field,
     Forrest,
     DeepForrest,
-    Rock
+    Mountain
 }
