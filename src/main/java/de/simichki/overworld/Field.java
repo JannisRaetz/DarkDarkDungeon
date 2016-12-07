@@ -1,5 +1,7 @@
 package de.simichki.overworld;
 
+import de.simichki.overworld.structure.Structure;
+
 public class Field {
     private int xPos;
     private int yPos;
