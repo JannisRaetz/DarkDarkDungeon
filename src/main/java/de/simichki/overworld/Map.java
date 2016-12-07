@@ -1,13 +1,17 @@
 package de.simichki.overworld;
 
+import de.simichki.overworld.structure.Structure;
+
+import java.util.List;
+
 public class Map {
-    private int width;
-    private int height;
-    private Field[][] fieldArray;
+    private final int width;
+    private final int height;
+    private final Field[][] fieldArray;
 
     public Map (Field[][] fieldArray) {
         this.width = fieldArray.length;
-        this.width = fieldArray[0].length;
+        this.height = fieldArray[0].length;
         this.fieldArray = fieldArray;
     }
 
