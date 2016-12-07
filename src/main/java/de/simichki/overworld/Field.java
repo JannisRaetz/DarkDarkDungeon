@@ -1,9 +1,12 @@
 package de.simichki.overworld;
 
+import de.simichki.overworld.structure.Structure;
+
 public class Field {
-    private int xPos;
-    private int yPos;
-    private FieldType fieldType;
+    private final int xPos;
+    private final int yPos;
+    private final FieldType fieldType;
+
     private Structure structure;
 
     public Field(int xPos, int yPos, FieldType fieldType) {
@@ -12,8 +15,12 @@ public class Field {
         this.fieldType = fieldType;
     }
 
-    public Field getNeighbour(Direction direction) {
-        return null;
+    public Structure getStructure() {
+        return this.structure;
+    }
+
+    public void setStructure() {
+        this.structure = structure;
     }
 
 }

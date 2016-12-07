@@ -1,4 +1,4 @@
-package de.simichki.overworld;
+package de.simichki.overworld.structure;
 
 public enum ConnectionType {
     Street,
