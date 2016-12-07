@@ -8,6 +8,7 @@ public class Field {
     private final FieldType fieldType;
 
     private Structure structure;
+    //private Force force;
 
     public Field(int xPos, int yPos, FieldType fieldType) {
         this.xPos = xPos;
