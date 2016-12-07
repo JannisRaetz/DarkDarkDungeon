@@ -1,5 +1,6 @@
 package de.simichki.graphic;
 
+import javax.swing.event.MouseInputListener;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -7,9 +8,8 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Stroke;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-public class Hexagon extends Polygon implements MouseListener{
+public class Hexagon extends Polygon implements MouseInputListener{
 
     private static final long serialVersionUID = 1L;
 
@@ -108,31 +108,29 @@ public class Hexagon extends Polygon implements MouseListener{
     }
 
     public void mouseClicked(MouseEvent e) {
-        graphics.setColor(new Color(0x22222));
-        graphics.fillPolygon(this);
     }
 
     public void mousePressed(MouseEvent e) {
-        graphics.setColor(new Color(0x22222));
-        graphics.fillPolygon(this);
 
     }
 
     public void mouseReleased(MouseEvent e) {
-        graphics.setColor(new Color(0x22222));
-        graphics.fillPolygon(this);
 
     }
 
     public void mouseEntered(MouseEvent e) {
-        graphics.setColor(new Color(0x22222));
-        graphics.fillPolygon(this);
 
     }
 
     public void mouseExited(MouseEvent e) {
-        graphics.setColor(new Color(0x22222));
-        graphics.fillPolygon(this);
+
+    }
+
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    public void mouseMoved(MouseEvent e) {
 
     }
 }

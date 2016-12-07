@@ -42,9 +42,9 @@ public class Panel extends JPanel{
         for(int x = 0; x < height; x++) {
             for(int y = 0; y < width; y++) {
                 if(y % 2 == 1) {
-                    drawHex(g, (int) (xOff * (-cols + (x * 2 + 1)-1)), (int) (H2 + yOff * (y - cols) * 3), hexSize);
+                    drawHex(g, (int) (10 + xOff * (-cols + (x * 2 + 1)-1)), (int) (10 + yOff * (y - cols) * 3), hexSize);
                 } else {
-                    drawHex(g, (int) (xOff * (-cols + (x * 2 + 1))), (int) (H2 + yOff * (y - cols) * 3), hexSize);
+                    drawHex(g, (int) (10 + xOff * (-cols + (x * 2 + 1))), (int) (10 + yOff * (y - cols) * 3), hexSize);
                 }
             }
         }
@@ -52,7 +52,6 @@ public class Panel extends JPanel{
 
     private void drawHex(Graphics2D g, int x, int y, int r) {
         Hexagon hex = new Hexagon(g, x, y, r);
-        int h = metrics.getHeight();
         g.setColor(new Color(0x008844));
         g.fillPolygon(hex);
         g.setColor(new Color(0xFFDD88));
