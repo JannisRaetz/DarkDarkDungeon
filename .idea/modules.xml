@@ -4,12 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/DarkDarkDungeon.iml" filepath="$PROJECT_DIR$/.idea/modules/DarkDarkDungeon.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/DarkDarkDungeon_main.iml" filepath="$PROJECT_DIR$/.idea/modules/DarkDarkDungeon_main.iml" group="DarkDarkDungeon" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DarkDarkDungeon_main.iml" filepath="$PROJECT_DIR$/.idea/modules/DarkDarkDungeon_main.iml" group="DarkDarkDungeon" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DarkDarkDungeon_test.iml" filepath="$PROJECT_DIR$/.idea/modules/DarkDarkDungeon_test.iml" group="DarkDarkDungeon" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/DarkDarkDungeon_test.iml" filepath="$PROJECT_DIR$/.idea/modules/DarkDarkDungeon_test.iml" group="DarkDarkDungeon" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/test/test.iml" filepath="$PROJECT_DIR$/.idea/modules/test/test.iml" group="test" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test/test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/test/test_main.iml" group="test" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test/test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/test/test_test.iml" group="test" />
     </modules>
   </component>
 </project>

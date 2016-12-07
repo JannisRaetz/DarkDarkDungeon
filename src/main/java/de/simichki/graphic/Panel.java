@@ -32,7 +32,7 @@ public class Panel extends JPanel{
         drawHexGridAdvanced(g2d, 20, 20, 20);
     }
 
-    private void drawHexGridAdvanced(Graphics g, int hexSize, int height, int width) {
+    private void drawHexGridAdvanced(Graphics2D g, int hexSize, int height, int width) {
         //offset to ensure edges fit
         double ang30 = Math.toRadians(30);
         double xOff = Math.cos(ang30) * hexSize;
@@ -50,8 +50,8 @@ public class Panel extends JPanel{
         }
     }
 
-    private void drawHex(Graphics g, int x, int y, int r) {
-        Hexagon hex = new Hexagon(x, y, r);
+    private void drawHex(Graphics2D g, int x, int y, int r) {
+        Hexagon hex = new Hexagon(g, x, y, r);
         int h = metrics.getHeight();
         g.setColor(new Color(0x008844));
         g.fillPolygon(hex);
