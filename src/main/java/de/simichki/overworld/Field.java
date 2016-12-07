@@ -13,7 +13,7 @@ public class Field {
     }
 
     public Field getNeighbour(Direction direction) {
-
+        return null;
     }
 
 }

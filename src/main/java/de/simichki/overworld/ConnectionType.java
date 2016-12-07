@@ -1,6 +1,6 @@
 package de.simichki.overworld;
 
-public Enum ConnectionType {
+public enum ConnectionType {
     Street,
     River,
     Wall
