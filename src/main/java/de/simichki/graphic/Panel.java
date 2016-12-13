@@ -1,12 +1,17 @@
 package de.simichki.graphic;
 
 import javax.swing.*;
+import javax.swing.event.MouseInputListener;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by jannis on 06.12.16.
  */
-public class Panel extends JPanel{
+public class Panel extends JPanel implements MouseInputListener{
+    private Map<Point, Hexagon> map = new HashMap<Point, Hexagon>();
     private static final long serialVersionUID = 1L;
     private final int WIDTH = 1200;
     private final int HEIGHT = 800;
@@ -32,6 +37,12 @@ public class Panel extends JPanel{
         drawHexGridAdvanced(g2d, 20, 20, 20);
     }
 
+    public void colorHex() {
+        for(Point p : map.keySet()) {
+            map.get(p).setColor(new Color(0x000000));
+        }
+    }
+
     private void drawHexGridAdvanced(Graphics2D g, int hexSize, int height, int width) {
         //offset to ensure edges fit
         double ang30 = Math.toRadians(30);
@@ -48,10 +59,13 @@ public class Panel extends JPanel{
                 }
             }
         }
+        System.out.println(map.entrySet());
     }
 
     private void drawHex(Graphics2D g, int x, int y, int r) {
-        Hexagon hex = new Hexagon(g, x, y, r);
+        Point point = new Point(x,y);
+        Hexagon hex = new Hexagon(g, point, r);
+        map.put(point, hex);
         g.setColor(new Color(0x008844));
         g.fillPolygon(hex);
         g.setColor(new Color(0xFFDD88));
@@ -85,5 +99,45 @@ public class Panel extends JPanel{
         // Set values to previous when done.
         g.setColor(tmpC);
         g.setStroke(tmpS);
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        Point p = e.getPoint();
+        Hexagon hex = getClosestHexagon(p);
+        if(hex != null) {
+            hex.setColor(new Color(0x000000));
+        }
+    }
+
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    public void mouseMoved(MouseEvent e) {
+
+    }
+
+    private Hexagon getClosestHexagon(Point point) {
+        if(map.containsKey(point)) {
+            return map.get(point);
+        } else {
+            return null;
+        }
     }
 }

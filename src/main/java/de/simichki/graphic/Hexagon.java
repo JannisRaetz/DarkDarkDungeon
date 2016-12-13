@@ -9,7 +9,7 @@ import java.awt.Polygon;
 import java.awt.Stroke;
 import java.awt.event.MouseEvent;
 
-public class Hexagon extends Polygon implements MouseInputListener{
+public class Hexagon extends Polygon {
 
     private static final long serialVersionUID = 1L;
 
@@ -71,6 +71,11 @@ public class Hexagon extends Polygon implements MouseInputListener{
         return fraction * Math.PI * 2 + Math.toRadians((rotation + 180) % 360);
     }
 
+    public void setColor(Color col) {
+        graphics.setColor(new Color(0x008844));
+        graphics.drawPolygon(this);
+    }
+
     private Point findPoint(double angle) {
         int x = (int) (center.x + Math.cos(angle) * radius);
         int y = (int) (center.y + Math.sin(angle) * radius);
@@ -105,32 +110,5 @@ public class Hexagon extends Polygon implements MouseInputListener{
         // Set values to previous when done.
         graphics.setColor(tmpC);
         graphics.setStroke(tmpS);
-    }
-
-    public void mouseClicked(MouseEvent e) {
-    }
-
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    public void mouseExited(MouseEvent e) {
-
-    }
-
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    public void mouseMoved(MouseEvent e) {
-
     }
 }

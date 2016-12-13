@@ -7,7 +7,7 @@ import java.awt.*;
  * Created by jannis on 06.12.16.
  */
 public class PanelTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         JFrame f = new JFrame();
         Panel p = new Panel();
