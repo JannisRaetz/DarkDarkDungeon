@@ -3,6 +3,7 @@ package de.simichki.graphic;
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,8 +11,7 @@ import java.util.Map;
 /**
  * Created by jannis on 06.12.16.
  */
-public class Panel extends JPanel implements MouseInputListener{
-    private Map<Point, Hexagon> map = new HashMap<Point, Hexagon>();
+public class Panel extends JPanel{
     private static final long serialVersionUID = 1L;
     private final int WIDTH = 1200;
     private final int HEIGHT = 800;
@@ -34,42 +34,37 @@ public class Panel extends JPanel implements MouseInputListener{
         g2d.setFont(font);
         metrics = g.getFontMetrics();
 
-        drawHexGridAdvanced(g2d, 20, 20, 20);
+        drawHexGridAdvanced(g2d, 20, 1000, 1000);
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Point p = e.getPoint();
+            }
+        });
     }
 
-    public void colorHex() {
-        for(Point p : map.keySet()) {
-            map.get(p).setColor(new Color(0x000000));
-        }
-    }
-
-    private void drawHexGridAdvanced(Graphics2D g, int hexSize, int height, int width) {
+    private void drawHexGridAdvanced(Graphics2D g, int scale, int height, int width) {
         //offset to ensure edges fit
-        double ang30 = Math.toRadians(30);
-        double xOff = Math.cos(ang30) * hexSize;
-        double yOff = Math.sin(ang30) * hexSize;
-
-        int cols = 0;
-        for(int x = 0; x < height; x++) {
-            for(int y = 0; y < width; y++) {
-                if(y % 2 == 1) {
-                    drawHex(g, (int) (10 + xOff * (-cols + (x * 2 + 1)-1)), (int) (10 + yOff * (y - cols) * 3), hexSize);
+        boolean even = true;
+        for(int x = scale/2; x < width; x += scale) {
+            for(int y = scale/2; y < height; y += scale) {
+                if(even) {
+                    drawTriangle(g, new Point(x,y), new Point((x - scale/2), (int) Math.sqrt((3/4)*scale)), new Point((x + scale/2), (int) Math.sqrt((3/4)*scale)));
+                    even = false;
                 } else {
-                    drawHex(g, (int) (10 + xOff * (-cols + (x * 2 + 1))), (int) (10 + yOff * (y - cols) * 3), hexSize);
+                    drawTriangle(g, new Point(x,y), new Point((x - scale/2), (int) Math.sqrt((3/4)*scale)), new Point((x + scale/2), (int) Math.sqrt((3/4)*scale)));
+                    even = true;
                 }
             }
         }
-        System.out.println(map.entrySet());
     }
 
-    private void drawHex(Graphics2D g, int x, int y, int r) {
-        Point point = new Point(x,y);
-        Hexagon hex = new Hexagon(g, point, r);
-        map.put(point, hex);
+    private void drawTriangle(Graphics2D g, Point a, Point b, Point c) {
+        Triangle triangle = new Triangle(g, a, b, c);
         g.setColor(new Color(0x008844));
-        g.fillPolygon(hex);
+        g.fillPolygon(triangle);
         g.setColor(new Color(0xFFDD88));
-        g.drawPolygon(hex);
+        g.drawPolygon(triangle);
         g.setColor(new Color(0xFFFFFF));
     }
 
@@ -99,45 +94,5 @@ public class Panel extends JPanel implements MouseInputListener{
         // Set values to previous when done.
         g.setColor(tmpC);
         g.setStroke(tmpS);
-    }
-
-    public void mouseClicked(MouseEvent e) {
-        Point p = e.getPoint();
-        Hexagon hex = getClosestHexagon(p);
-        if(hex != null) {
-            hex.setColor(new Color(0x000000));
-        }
-    }
-
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    public void mouseExited(MouseEvent e) {
-
-    }
-
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    public void mouseMoved(MouseEvent e) {
-
-    }
-
-    private Hexagon getClosestHexagon(Point point) {
-        if(map.containsKey(point)) {
-            return map.get(point);
-        } else {
-            return null;
-        }
     }
 }
